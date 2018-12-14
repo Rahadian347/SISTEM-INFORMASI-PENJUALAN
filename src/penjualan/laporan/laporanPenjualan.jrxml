@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8bcc79c-7bb3-439d-ba47-d188497c95b4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pelanggan.`id_pelanggan` AS pelanggan_id_pelanggan,
+     pelanggan.`nama` AS pelanggan_nama,
+     penjualan.`kode_faktur` AS penjualan_kode_faktur,
+     penjualan.`jumlah` AS penjualan_jumlah,
+     penjualan.`harga` AS penjualan_harga,
+     tabel_barang.`nama_barang` AS tabel_barang_nama_barang,
+     tabel_barang.`kode_barang` AS tabel_barang_kode_barang
+FROM
+     `pelanggan` pelanggan,
+     `penjualan` penjualan,
+     `tabel_barang` tabel_barang]]>
+	</queryString>
+	<field name="pelanggan_id_pelanggan" class="java.lang.String"/>
+	<field name="pelanggan_nama" class="java.lang.String"/>
+	<field name="penjualan_kode_faktur" class="java.lang.String"/>
+	<field name="penjualan_jumlah" class="java.lang.Integer"/>
+	<field name="penjualan_harga" class="java.lang.Double"/>
+	<field name="tabel_barang_nama_barang" class="java.lang.String"/>
+	<field name="tabel_barang_kode_barang" class="java.lang.String"/>
+	<group name="pelanggan_nama">
+		<groupExpression><![CDATA[$F{pelanggan_nama}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#006600" uuid="742a50a1-ec56-4566-9314-e0afaf841dbf"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pelanggan_nama}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="f8f1b7d3-7541-459f-9127-0675026c74cc"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="9ff974ae-a786-4acc-80bc-cb79aafd9ab8"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="61cc4fc0-d046-4105-aa38-668a53ababab"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[PT.  Surogates Ind]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22" uuid="d9a76a9b-a7f1-4e78-8a5d-4a0da4d253fa"/>
+				<text><![CDATA[Laporan Penjualan ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="1829e250-fdb7-4d99-8e52-af4b4cc85581"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="7f5234ba-263d-41ff-8b2a-12838f44a828"/>
+				<text><![CDATA[jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="e81d3b4d-3608-437e-a568-769958fa2db2"/>
+				<text><![CDATA[harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="341ed3e8-b872-4e8c-8f2a-6b2d1f452911"/>
+				<text><![CDATA[item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="97856800-a3c0-4c1a-ad0e-c84e9b943f48"/>
+				<text><![CDATA[kode item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="354a9f1a-c4b9-4d5e-af5a-6d288a2fc66c"/>
+				<text><![CDATA[kode faktur]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="c68c73ea-e051-4013-aa82-4c927751466f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="c007429e-e508-485c-8633-74f06a006fbb"/>
+				<textFieldExpression><![CDATA[$F{pelanggan_id_pelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="6e34f040-9c64-47df-8d52-a5726c4c5e5b"/>
+				<textFieldExpression><![CDATA[$F{penjualan_kode_faktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="9cf63802-b1ef-419f-9f32-9caa2d3ededa"/>
+				<textFieldExpression><![CDATA[$F{penjualan_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="9b0600b6-2715-48a3-a1a2-f3dd1bddfa37"/>
+				<textFieldExpression><![CDATA[$F{penjualan_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="e812bb73-48c1-4dcc-98b0-d081a955c641"/>
+				<textFieldExpression><![CDATA[$F{tabel_barang_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="c2c5d470-b999-40e2-9749-4a7386efe065"/>
+				<textFieldExpression><![CDATA[$F{tabel_barang_kode_barang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="0709f10b-fc26-42a9-8591-250e39ef2e3d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="d0ac2f5c-e738-4aa7-8d6a-fb4151a0ada9"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="929444c6-cf7a-4d8d-844d-5f0cdb60a0f8"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="d04b5a5a-f14b-42d8-b2c5-c2f1c729fdfb"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

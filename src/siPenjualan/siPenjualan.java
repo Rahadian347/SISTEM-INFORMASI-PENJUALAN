@@ -5,19 +5,36 @@
  */
 package siPenjualan;
 
+import java.io.File;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import penjualan.koneksi.koneksi;
 import penjualan.view.barangView;
 import penjualan.view.pelangganView;
 import penjualan.view.pembelianView;
 import penjualan.view.transaksiView;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author Rahadian Permana
  */
 public class siPenjualan extends javax.swing.JFrame {
+    JasperReport jasperReport;
+    JasperDesign jasperDesign;
+    JasperPrint jasperPrint;
+    JasperViewer jasperViewer;
+    JasperCompileManager jasperCompileManager;
+    Map<String, Object> param = new HashMap<String, Object>();
   
     /**
      * Creates new form siPenjualan
@@ -46,6 +63,7 @@ public class siPenjualan extends javax.swing.JFrame {
         MenuItenTrans = new javax.swing.JMenuItem();
         MenuItenTrans1 = new javax.swing.JMenuItem();
         MenuLaporan = new javax.swing.JMenu();
+        MenuItenTrans2 = new javax.swing.JMenuItem();
         MenuLogout1 = new javax.swing.JMenu();
         MenuLogout = new javax.swing.JMenu();
 
@@ -131,6 +149,16 @@ public class siPenjualan extends javax.swing.JFrame {
 
         MenuLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report.png"))); // NOI18N
         MenuLaporan.setText("Laporan");
+
+        MenuItenTrans2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sell.png"))); // NOI18N
+        MenuItenTrans2.setText("Penjualan ");
+        MenuItenTrans2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItenTrans2ActionPerformed(evt);
+            }
+        });
+        MenuLaporan.add(MenuItenTrans2);
+
         jMenuBar1.add(MenuLaporan);
 
         MenuLogout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/help.png"))); // NOI18N
@@ -225,6 +253,24 @@ public class siPenjualan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_MenuItenTrans1ActionPerformed
 
+    private void MenuItenTrans2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItenTrans2ActionPerformed
+        try {
+            // TODO add your handling code here:
+            File file = new File("src/penjualan/laporan/laporanPenjualan.jrxml");
+            jasperDesign = JRXmlLoader.load(file);
+            param.clear();
+            jasperReport = jasperCompileManager.compileReport(jasperDesign);
+            jasperPrint = JasperFillManager.fillReport(jasperReport, param, koneksi.getConnection());
+            jasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_MenuItenTrans2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -268,6 +314,7 @@ public class siPenjualan extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuItemPelanggan;
     private javax.swing.JMenuItem MenuItenTrans;
     private javax.swing.JMenuItem MenuItenTrans1;
+    private javax.swing.JMenuItem MenuItenTrans2;
     private javax.swing.JMenu MenuLaporan;
     private javax.swing.JMenu MenuLogout;
     private javax.swing.JMenu MenuLogout1;
