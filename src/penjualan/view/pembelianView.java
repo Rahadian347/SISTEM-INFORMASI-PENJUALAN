@@ -111,9 +111,10 @@ public class pembelianView extends javax.swing.JFrame {
         txtAlamat = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 255, 51));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel1.setForeground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 255, 51));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("FORM PEMBELIAN");

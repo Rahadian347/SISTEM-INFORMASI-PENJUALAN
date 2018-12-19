@@ -54,6 +54,7 @@ public class siPenjualan extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuHome = new javax.swing.JMenu();
         MenuMaster = new javax.swing.JMenu();
@@ -64,28 +65,36 @@ public class siPenjualan extends javax.swing.JFrame {
         MenuItenTrans1 = new javax.swing.JMenuItem();
         MenuLaporan = new javax.swing.JMenu();
         MenuItenTrans2 = new javax.swing.JMenuItem();
-        MenuLogout1 = new javax.swing.JMenu();
+        MenuItenTrans3 = new javax.swing.JMenuItem();
+        MenuHelp = new javax.swing.JMenu();
         MenuLogout = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setFocusable(false);
+        setFocusableWindowState(false);
         setLocation(new java.awt.Point(0, 0));
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel1.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 342, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 354, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 204, 51));
-        jMenuBar1.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
 
         MenuHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
         MenuHome.setMnemonic('h');
@@ -96,7 +105,7 @@ public class siPenjualan extends javax.swing.JFrame {
         MenuMaster.setMnemonic('m');
         MenuMaster.setText("Master");
 
-        MenuItemBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/items.png"))); // NOI18N
+        MenuItemBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/products.png"))); // NOI18N
         MenuItemBarang.setMnemonic('b');
         MenuItemBarang.setText("Barang");
         MenuItemBarang.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +136,7 @@ public class siPenjualan extends javax.swing.JFrame {
             }
         });
 
-        MenuItenTrans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sell.png"))); // NOI18N
+        MenuItenTrans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/jual.png"))); // NOI18N
         MenuItenTrans.setText("Penjualan ");
         MenuItenTrans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +145,7 @@ public class siPenjualan extends javax.swing.JFrame {
         });
         MenuTransaksi.add(MenuItenTrans);
 
-        MenuItenTrans1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sell.png"))); // NOI18N
+        MenuItenTrans1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Aku\\Documents\\Books\\PVS\\UTSFIX\\SISTEM-INFORMASI-PENJUALAN\\src\\icons\\beli.png")); // NOI18N
         MenuItenTrans1.setText("Pembelian");
         MenuItenTrans1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,10 +156,10 @@ public class siPenjualan extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuTransaksi);
 
-        MenuLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report.png"))); // NOI18N
+        MenuLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sellsreport.png"))); // NOI18N
         MenuLaporan.setText("Laporan");
 
-        MenuItenTrans2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sell.png"))); // NOI18N
+        MenuItenTrans2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sellsreport.png"))); // NOI18N
         MenuItenTrans2.setText("Penjualan ");
         MenuItenTrans2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,21 +168,39 @@ public class siPenjualan extends javax.swing.JFrame {
         });
         MenuLaporan.add(MenuItenTrans2);
 
-        jMenuBar1.add(MenuLaporan);
-
-        MenuLogout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/help.png"))); // NOI18N
-        MenuLogout1.setMnemonic('h');
-        MenuLogout1.setText("Help");
-        MenuLogout1.addActionListener(new java.awt.event.ActionListener() {
+        MenuItenTrans3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/products.png"))); // NOI18N
+        MenuItenTrans3.setText("Barang");
+        MenuItenTrans3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuLogout1ActionPerformed(evt);
+                MenuItenTrans3ActionPerformed(evt);
             }
         });
-        jMenuBar1.add(MenuLogout1);
+        MenuLaporan.add(MenuItenTrans3);
+
+        jMenuBar1.add(MenuLaporan);
+
+        MenuHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/help.png"))); // NOI18N
+        MenuHelp.setMnemonic('h');
+        MenuHelp.setText("Help");
+        MenuHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuHelpActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(MenuHelp);
 
         MenuLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         MenuLogout.setMnemonic('h');
         MenuLogout.setText("Logout");
+        MenuLogout.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
+            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
+                MenuLogoutMenuKeyPressed(evt);
+            }
+            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
+            }
+            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
+            }
+        });
         MenuLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuLogoutActionPerformed(evt);
@@ -232,14 +259,9 @@ public class siPenjualan extends javax.swing.JFrame {
        
     }//GEN-LAST:event_MenuItenTransActionPerformed
 
-    private void MenuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuLogoutActionPerformed
+    private void MenuHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuHelpActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_MenuLogoutActionPerformed
-
-    private void MenuLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuLogout1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuLogout1ActionPerformed
+    }//GEN-LAST:event_MenuHelpActionPerformed
 
     private void MenuItenTrans1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItenTrans1ActionPerformed
         // TODO add your handling code here:
@@ -270,6 +292,20 @@ public class siPenjualan extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_MenuItenTrans2ActionPerformed
+
+    private void MenuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuLogoutActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_MenuLogoutActionPerformed
+
+    private void MenuLogoutMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_MenuLogoutMenuKeyPressed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_MenuLogoutMenuKeyPressed
+
+    private void MenuItenTrans3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItenTrans3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuItenTrans3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,17 +345,19 @@ public class siPenjualan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuHelp;
     private javax.swing.JMenu MenuHome;
     private javax.swing.JMenuItem MenuItemBarang;
     private javax.swing.JMenuItem MenuItemPelanggan;
     private javax.swing.JMenuItem MenuItenTrans;
     private javax.swing.JMenuItem MenuItenTrans1;
     private javax.swing.JMenuItem MenuItenTrans2;
+    private javax.swing.JMenuItem MenuItenTrans3;
     private javax.swing.JMenu MenuLaporan;
     private javax.swing.JMenu MenuLogout;
-    private javax.swing.JMenu MenuLogout1;
     private javax.swing.JMenu MenuMaster;
     private javax.swing.JMenu MenuTransaksi;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

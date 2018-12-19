@@ -55,7 +55,7 @@ FROM
 		<band height="70" splitType="Stretch">
 			<image>
 				<reportElement x="275" y="0" width="300" height="64" uuid="9ff974ae-a786-4acc-80bc-cb79aafd9ab8"/>
-				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+				<imageExpression><![CDATA[this.getClass().getResourceAsStream("/penjualan/laporan/leaf_banner_green.jpg")]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="61cc4fc0-d046-4105-aa38-668a53ababab"/>
