@@ -13,6 +13,7 @@ package penjualan.koneksi;
 /**
  *
  * @author Rahadian Permana
+ * dali sapari
  */
 public class koneksi {
      public static Connection conn;
